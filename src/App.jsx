@@ -1,11 +1,11 @@
 import React from "react";
 import './App.css';
-// Page components
+import Header from './page/Header/Header';
 
 export default function App() {
     return (
         <>
-            {/** Header */}
+            <Header />
             <main>
                 {/** Home */}
             </main>
