@@ -23,6 +23,13 @@ const subRedditSlice = createSlice({
             state.isLoading = false;
             state.error = true;
         },
+        addSubreddit(state, action) {
+            state.subreddits = [
+                ...state.subreddits,
+                action.payload
+            ];
+            console.log(state.subreddits);
+        },
     },
 });
 
@@ -30,6 +37,7 @@ export const {
     getSubredditsFailed,
     getSubredditsSuccess,
     startGetSubreddits,
+    addSubreddit
 } = subRedditSlice.actions;
 
 export default subRedditSlice.reducer;
@@ -44,4 +52,6 @@ export const fetchSubreddits = () => async (dispatch) => {
     }
 };
 
-export const selectSubreddits = (state) => state.subreddits.subreddits;
+
+export const selectSubreddits = state => state.subreddits.subreddits;
+export const selectSubredditTerm = state => state.subreddits.subredditTerm;

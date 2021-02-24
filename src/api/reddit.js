@@ -12,6 +12,16 @@ export const getSubreddits = async () => {
     return json.data.children.map(subreddit => subreddit.data);
 };
 
+export const getSubreddit = async (subreddit) => {
+    try {
+        const res = await fetch(`${API_BASE}/r${subreddit}/about.json`);
+        const json = await res.json();
+        return json && json.data ? json.data : undefined;
+    } catch (error) {
+        console.error(`Failed to find subreddit ${subreddit}`, error);
+    }
+};
+
 export const getPostComments = async (permlink) => {
     const res = await fetch(`${API_BASE}${permlink}.json`);
     const json = await res.json();

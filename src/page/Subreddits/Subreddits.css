@@ -44,3 +44,31 @@
     border-radius: 50%;
     margin-right: var(--spacing-1);
 }
+
+.subsearch {
+    display: flex;
+    align-items: center;
+}
+
+.subsearch input {
+    flex-grow: 1;
+    background: var(--color-background-secondary);
+    border: none;
+    padding: var(--spacing-1) var(--spacing-2);
+    height: max-content;
+    border-radius: var(--radius);
+}
+
+.subsearch button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-secondary) !important;
+    font-size: 1.3rem;
+    width: unset;
+    height: unset;
+}
+
+.subsearch button:hover {
+    background: unset;
+}
