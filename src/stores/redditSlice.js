@@ -6,7 +6,7 @@ const initialState = {
     error: false,
     isLoading: false,
     searchTerm: '',
-    selectedSubreddit: '/r/memes/',
+    selectedSubreddit: '/r/Home/',
 };
 
 const redditSlice = createSlice({
