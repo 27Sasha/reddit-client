@@ -129,12 +129,10 @@ export default function Post(props) {
                                     <ReactMarkdown source={post.selftext} />
                                 </div>)
                                 : (<div className="post-image-container">
-                                    {console.log(post.url, post)}
                                     {
-                                        <img src={post.url} alt="" className="post-image" />
-                                    }
-                                    {
-                                        !urlisImage(post.url) && convertPostToEmbed(post)
+                                        urlisImage(post.url)
+                                            ? <img src={post.url} alt="" className="post-image" />
+                                            : convertPostToEmbed(post)
                                     }
                                 </div>)
                         }
