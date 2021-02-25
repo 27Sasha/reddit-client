@@ -8,8 +8,11 @@ import {
     TiArrowDownThick,
     TiMessage,
 } from 'react-icons/ti';
+import ReactMarkdown from 'react-markdown';
 import moment from 'moment';
 import shortenNumber from '../../utils/shortenNumber';
+import urlisImage from "../../utils/urlisImage";
+import convertPostToEmbed from "../../utils/convertPostToEmbed";
 import Card from '../../components/Card/Card';
 import Comment from '../Comment/Comment';
 import Avatar from '../Avatar/Avatar';
@@ -120,9 +123,21 @@ export default function Post(props) {
                     <div className="post-container">
                         <h3 className="post-title">{post.title}</h3>
 
-                        <div className="post-image-container">
-                            <img src={post.url} alt="" className="post-image" />
-                        </div>
+                        {
+                            post.selftext && post.selftext.length > 0
+                                ? (<div>
+                                    <ReactMarkdown source={post.selftext} />
+                                </div>)
+                                : (<div className="post-image-container">
+                                    {console.log(post.url, post)}
+                                    {
+                                        <img src={post.url} alt="" className="post-image" />
+                                    }
+                                    {
+                                        !urlisImage(post.url) && convertPostToEmbed(post)
+                                    }
+                                </div>)
+                        }
 
                         <div className="post-details">
                             <span className="author-details">
@@ -147,6 +162,6 @@ export default function Post(props) {
                     </div>
                 </div>
             </Card>
-        </article>
+        </article >
     );
 };

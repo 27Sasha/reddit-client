@@ -28,7 +28,6 @@ const subRedditSlice = createSlice({
                 ...state.subreddits,
                 action.payload
             ];
-            console.log(state.subreddits);
         },
     },
 });
