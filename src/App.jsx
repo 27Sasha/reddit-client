@@ -12,6 +12,7 @@ export default function App() {
         <>
             <Header />
             {
+                // Display subreddits at the top of the page on mobile
                 !isMobile
                     ? (<><main><Home /></main><aside><Subreddits /></aside></>)
                     : (<><aside><Subreddits /></aside><main><Home /></main></>)
