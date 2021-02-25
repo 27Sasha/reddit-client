@@ -18,9 +18,9 @@ import Comment from '../Comment/Comment';
 import Avatar from '../Avatar/Avatar';
 
 export default function Post(props) {
-    const [voteValue, setVoteValue] = useState(0);
-
     const { post, onToggleComments } = props;
+    const [voteValue, setVoteValue] = useState(0);
+    const [votes, setVotes] = useState(post.ups);
 
     /**
      * @param {number} newValue The new vote value
@@ -28,10 +28,20 @@ export default function Post(props) {
     const handleVote = (newValue) => {
         if (newValue === voteValue) {
             setVoteValue(0);
+            switch (newValue) {
+                case 1:
+                    setVotes(prev => prev - 1);
+                    break;
+                default:
+                    setVotes(prev => prev + 1);
+                    break;
+            }
         } else if (newValue === 1) {
             setVoteValue(1);
+            setVotes(prev => prev + 1);
         } else {
             setVoteValue(-1);
+            setVotes(prev => prev - 1);
         }
     };
 
@@ -92,9 +102,8 @@ export default function Post(props) {
 
         return null;
     };
-
     return (
-        <article key={post.id}>
+        < article key={post.id} >
             <Card>
                 <div className="post-wrapper">
                     <div className="post-votes-container">
@@ -108,7 +117,7 @@ export default function Post(props) {
                             {renderUpvote()}
                         </button>
                         <p className={`post-votes-value ${getVoteType()}`}>
-                            {shortenNumber(post.ups, 1)}
+                            {shortenNumber(votes, 1)}
                         </p>
                         <button
                             type="button"
