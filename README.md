@@ -1,8 +1,8 @@
 # Reddit Client
 A Codecademy project to make Reddit look minimal as possible. No account required.\
 All posts are based of "/hot". You can search for any subreddit and no history is logged or stored.\
-**Supports mobile**
-[Link to](https://reddit.harrisonhoward.xyz/)
+**Supports mobile**\
+[Link to website](https://reddit.harrisonhoward.xyz/)
 
 ## Wireframes
 This project was planned out carefully. View the created wireframe of the website\
