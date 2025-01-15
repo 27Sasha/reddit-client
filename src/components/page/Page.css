@@ -1,0 +1,24 @@
+.page {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 for cards, 1/3 for sidebar */
+    gap: 20px; /* Space between columns */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box
+}
+.cardSection {
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Sidebar styling */
+.subreddit {
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
