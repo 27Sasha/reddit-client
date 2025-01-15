@@ -1,22 +1,14 @@
-import React from "react";
 import './App.css';
-import Header from './page/Header/Header';
-import Home from './page/Home/Home';
-import Subreddits from './page/Subreddits/Subreddits';
-import { useMediaQuery } from "react-responsive";
+import { NavBar } from './components/navbar/NavBar';
+import { Page } from './components/page/Page';
 
-export default function App() {
-    const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
-
-    return (
-        <>
-            <Header />
-            {
-                // Display subreddits at the top of the page on mobile
-                !isMobile
-                    ? (<><main><Home /></main><aside><Subreddits /></aside></>)
-                    : (<><aside><Subreddits /></aside><main><Home /></main></>)
-            }
-        </>
-    );
+function App() {
+  return (
+    <div className="App">
+      <NavBar />
+      <Page />
+    </div>
+  );
 }
+
+export default App;
