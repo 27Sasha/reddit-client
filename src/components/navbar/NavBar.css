@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding: 10px;
+}
+
+.header {
+    display: flex;
+    align-items: center; /* Align logo and title vertically */
+    gap: 10px; /* Space between the logo and title */
+}
+
+.search-bar-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: absolute;
+    top: 50%; /* Move to the vertical center */
+    left: 50%; /* Move to the horizontal center */
+    transform: translate(-50%, -50%); /* Adjust for the element's size */
+
+}
