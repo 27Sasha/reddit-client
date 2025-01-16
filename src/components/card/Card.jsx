@@ -3,7 +3,7 @@ import { fetchData } from "../../services/api";
 import { Comments } from "../comments/Comment";
 import { Likes } from "../likes/Likes";
 
-export function Card() {
+export function Card({ searchTerm }) {
     const [post, setPost] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [showComments, setShowComments] = useState(false)
@@ -18,9 +18,15 @@ export function Card() {
     }, []);  // Added empty dependency array
 
     if (isLoading) return <p>Loading...</p>;
+
+    const filteredPosts = searchTerm
+        ? post.filter((item) =>
+              item.data.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        : post;
 //authorlink not showing?
-    function timePosted(post){
-        const data = post.data.created_utc
+    function timePosted(filteredPosts){
+        const data = filteredPosts.data.created_utc
         const now = Math.floor(Date.now() / 1000); // Current time in seconds
         const elapsed = now - data;
         if (elapsed < 3600) {
@@ -48,7 +54,7 @@ export function Card() {
     return (
         <div className="card">
             <span className="cardHalf">
-            {post.map((item, index) => {
+            {filteredPosts.map((item, index) => {
                 const postId = item.data.id;
                 return (
                     <div key={index}>
